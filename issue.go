@@ -85,14 +85,14 @@ type IssueFields struct {
 	Attachments       []*Attachment `json:"attachment,omitempty"`
 
 	/* START - Matrix Solutions specific fields  */
-	SiteCode               string    `json:"customfield_10000,omitempty"`
-	ProjectFinancialCode   string    `json:"customfield_10001,omitempty"`
-	ProjectManager         *Assignee `json:"customfield_10002,omitempty"`
-	ProjectDataCoordinator *Assignee `json:"customfield_10003,omitempty"`
-	TechnicalAdvisor       *Assignee `json:"customfield_10004,omitempty"`
-	Template               string    `json:"customfield_10006,omitempty"`
-	ProjectName            string    `json:"customfield_10106,omitempty"`
-	ClientName             string    `json:"customfield_10108,omitempty"`
+	SiteCode               string `json:"customfield_10000,omitempty"`
+	ProjectFinancialCode   string `json:"customfield_10001,omitempty"`
+	ProjectManager         *User  `json:"customfield_10002,omitempty"`
+	ProjectDataCoordinator *User  `json:"customfield_10003,omitempty"`
+	TechnicalAdvisor       *User  `json:"customfield_10004,omitempty"`
+	Template               string `json:"customfield_10006,omitempty"`
+	ProjectName            string `json:"customfield_10106,omitempty"`
+	ClientName             string `json:"customfield_10108,omitempty"`
 	/* END - Matrix Solutions specific fields  */
 }
 

@@ -85,16 +85,28 @@ type IssueFields struct {
 	Attachments       []*Attachment `json:"attachment,omitempty"`
 
 	/* START - Matrix Solutions specific fields  */
-	SiteCode               string `json:"customfield_10000,omitempty"`
-	ProjectFinancialCode   string `json:"customfield_10001,omitempty"`
-	ProjectManager         *User  `json:"customfield_10002,omitempty"`
-	ProjectDataCoordinator *User  `json:"customfield_10003,omitempty"`
-	TechnicalAdvisor       *User  `json:"customfield_10004,omitempty"`
-	Template               string `json:"customfield_10006,omitempty"`
-	ProjectName            string `json:"customfield_10106,omitempty"`
-	ClientName             string `json:"customfield_10108,omitempty"`
+	SiteCode               string           `json:"customfield_10000,omitempty"`
+	ProjectFinancialCode   string           `json:"customfield_10001,omitempty"`
+	ProjectManager         *User            `json:"customfield_10002,omitempty"`
+	ProjectDataCoordinator *User            `json:"customfield_10003,omitempty"`
+	TechnicalAdvisor       *User            `json:"customfield_10004,omitempty"`
+	Template               string           `json:"customfield_10006,omitempty"`
+	ProjectName            string           `json:"customfield_10106,omitempty"`
+	ClientName             string           `json:"customfield_10108,omitempty"`
+	Client                 *SelectListEntry `json:"customfield_10300,omitempty"`
+	WorkType               *SelectListEntry `json:"customfield_10312,omitempty"`
 	/* END - Matrix Solutions specific fields  */
 }
+
+/* START - Matrix Solutions specific structs */
+
+type SelectListEntry struct {
+	Id    string `json:"id,omitempty"`
+	Name  string `json:"name,omitempty"`
+	Value string `json:"value,omitempty"`
+}
+
+/* END - Matrix Solutions specific structs */
 
 // IssueType represents a type of a JIRA issue.
 // Typical types are "Request", "Bug", "Story", ...

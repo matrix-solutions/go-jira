@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	// AssigneeAutomatic represents the value of the "Assignee: Automatic" of JIRA
+	// AssigneeAutomatic represents the value of the "Assignee: Automatic" of JIRA - another small test
 	AssigneeAutomatic = "-1"
 )
 

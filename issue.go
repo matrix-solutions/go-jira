@@ -95,6 +95,7 @@ type IssueFields struct {
 	ClientName             string           `json:"customfield_10108,omitempty"`
 	Client                 *SelectListEntry `json:"customfield_10300,omitempty"`
 	WorkType               *SelectListEntry `json:"customfield_10312,omitempty"`
+	FilePathLink           string           `json:"customfield_10703,omitempty"`
 	/* END - Matrix Solutions specific fields  */
 }
 

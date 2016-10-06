@@ -108,6 +108,14 @@ type SelectListEntry struct {
 	Value string `json:"value,omitempty"`
 }
 
+// Issue represents a JIRA issue - simplfied version for updates to jira issue.
+type UpdateFields struct {
+	FilePathLink *string `json:"customfield_10703,omitempty"`
+}
+type UpdateIssue struct {
+	Fields *UpdateFields `json:"fields,omitempty"`
+}
+
 /* END - Matrix Solutions specific structs */
 
 // IssueType represents a type of a JIRA issue.

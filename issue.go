@@ -116,6 +116,13 @@ type UpdateIssue struct {
 	Fields *UpdateFields `json:"fields,omitempty"`
 }
 
+type IssueWatchers struct {
+	Self       string `json:"self,omitempty"`
+	WatchCount int    `json:"watchCount,omitempty"`
+	IsWatching bool   `json:"isWatching,omitempty"`
+	Users      []User `json:"watchers,omitempty"`
+}
+
 /* END - Matrix Solutions specific structs */
 
 // IssueType represents a type of a JIRA issue.

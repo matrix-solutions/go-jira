@@ -83,6 +83,7 @@ type IssueFields struct {
 	Labels            []string      `json:"labels,omitempty"`
 	Subtasks          []*Subtasks   `json:"subtasks,omitempty"`
 	Attachments       []*Attachment `json:"attachment,omitempty"`
+	DueDate           string        `json:"duedate,omitempty"`
 
 	/* START - Matrix Solutions specific fields  */
 	SiteCode               string `json:"customfield_10000,omitempty"`
@@ -110,7 +111,8 @@ type SelectListEntry struct {
 
 // Issue represents a JIRA issue - simplfied version for updates to jira issue.
 type UpdateFields struct {
-	FilePathLink *string `json:"customfield_10703,omitempty"`
+	FilePathLink          *string `json:"customfield_10703,omitempty"`
+	ConfirmationEmailLink string  `json:"customfield_10800,omitempty"`
 }
 type UpdateIssue struct {
 	Fields *UpdateFields `json:"fields,omitempty"`

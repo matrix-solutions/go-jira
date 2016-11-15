@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	// AssigneeAutomatic represents the value of the "Assignee: Automatic" of JIRA - another small test
+	// AssigneeAutomatic represents the value of the "Assignee: Automatic" of JIRA
 	AssigneeAutomatic = "-1"
 )
 
@@ -86,17 +86,17 @@ type IssueFields struct {
 	DueDate           string        `json:"duedate,omitempty"`
 
 	/* START - Matrix Solutions specific fields  */
-	SiteCode               string `json:"customfield_10000,omitempty"`
-	ProjectFinancialCode   string `json:"customfield_10001,omitempty"`
-	ProjectManager         *User  `json:"customfield_10002,omitempty"`
-	ProjectDataCoordinator *User  `json:"customfield_10003,omitempty"`
-	TechnicalAdvisor       *User  `json:"customfield_10004,omitempty"`
-	Template               string `json:"customfield_10006,omitempty"`
-	ProjectName            string `json:"customfield_10106,omitempty"`
-	ClientName             string `json:"customfield_10108,omitempty"`
-	WorkType               string `json:"customfield_10312,omitempty"`
-	FilePathLink           string `json:"customfield_10703,omitempty"`
-	TaskCode               string `json:"customfield_10105,omitempty"`
+	SiteCode               string           `json:"customfield_10000,omitempty"`
+	ProjectFinancialCode   string           `json:"customfield_10001,omitempty"`
+	ProjectManager         *User            `json:"customfield_10002,omitempty"`
+	ProjectDataCoordinator *User            `json:"customfield_10003,omitempty"`
+	TechnicalAdvisor       *User            `json:"customfield_10004,omitempty"`
+	Template               string           `json:"customfield_10006,omitempty"`
+	ProjectName            string           `json:"customfield_10106,omitempty"`
+	ClientName             string           `json:"customfield_10108,omitempty"`
+	WorkType               *SelectListEntry `json:"customfield_10312,omitempty"`
+	FilePathLink           string           `json:"customfield_10703,omitempty"`
+	TaskCode               string           `json:"customfield_10105,omitempty"`
 	//Client                 *SelectListEntry `json:"customfield_10300,omitempty"`
 	/* END - Matrix Solutions specific fields  */
 }
@@ -113,6 +113,8 @@ type SelectListEntry struct {
 type UpdateFields struct {
 	FilePathLink          *string `json:"customfield_10703,omitempty"`
 	ConfirmationEmailLink string  `json:"customfield_10800,omitempty"`
+	DueDate               string  `json:"duedate,omitempty"`
+	Summary               string  `json:"summary,omitempty"`
 }
 type UpdateIssue struct {
 	Fields *UpdateFields `json:"fields,omitempty"`
@@ -123,6 +125,15 @@ type IssueWatchers struct {
 	WatchCount int    `json:"watchCount,omitempty"`
 	IsWatching bool   `json:"isWatching,omitempty"`
 	Users      []User `json:"watchers,omitempty"`
+}
+
+// searchResult is only a small wrapper arround the Search (with JQL) method
+// to be able to parse the results
+type SearchResultsFromJQL struct {
+	Issues     []Issue `json:"issues"`
+	StartAt    int     `json:"startAt"`
+	MaxResults int     `json:"maxResults"`
+	Total      int     `json:"total"`
 }
 
 /* END - Matrix Solutions specific structs */
